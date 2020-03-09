@@ -18,7 +18,7 @@ func (this *CircleQueue) Push(val int) (err error) {
 	}
 	// 尾部不含最后一个元素
 	this.Arr[this.Tail] = val
-	this.Tail++
+	this.Tail = (this.Tail + 1) % this.MaxSize
 	return
 }
 
@@ -27,7 +27,7 @@ func (this *CircleQueue) Pop() (val int, err error) {
 		return 0, errors.New("queue is empty")
 	}
 	val = this.Arr[this.Head]
-	this.Head++
+	this.Head = (this.Head + 1) % this.MaxSize
 	return
 }
 
