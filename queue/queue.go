@@ -1,8 +1,7 @@
-package main
+package queue
 
 import (
 	"fmt"
-	"os"
 )
 
 type Queue struct {
@@ -37,38 +36,4 @@ func (que *Queue) ShowQueue() {
 		fmt.Printf("array[%d]=%d", i, que.Arr[i])
 	}
 	fmt.Println()
-}
-
-func main() {
-	que := &Queue{
-		MaxSize: 5,
-		Arr:     [5]int{},
-		Front:   -1,
-		Rear:    -1,
-	}
-	var key string
-	var val int
-	for {
-		fmt.Println("1. add 添加操作")
-		fmt.Println("2. get 获取操作")
-		fmt.Println("3. show 显示操作")
-		fmt.Println("4. exit 退出操作")
-		fmt.Scan(&key)
-		switch key {
-		case "add":
-			fmt.Println("输入一个数字：")
-			fmt.Scan(&val)
-			que.Add(val)
-			fmt.Println("添加成功")
-		case "get":
-			fmt.Println("获取一个数字：")
-			fmt.Println(que.Get())
-			fmt.Println("获取成功")
-		case "show":
-			que.ShowQueue()
-			fmt.Println("显示出成功")
-		case "exit":
-			os.Exit(-1)
-		}
-	}
 }
