@@ -1,1 +1,5 @@
-package Upload
+package main
+
+func main() {
+
+}
